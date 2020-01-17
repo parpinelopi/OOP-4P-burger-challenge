@@ -4,3 +4,4 @@ gradlew
 settings.gradle
 build.gradle
 *.gradle
+*.idea
