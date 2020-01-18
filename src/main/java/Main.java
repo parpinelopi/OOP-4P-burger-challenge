@@ -1,44 +1,82 @@
 public class Main {
     public static void main(String[] args) {
 
+
     }
 }
 
-class BaseBurger{
+class BaseBurger {
     private int whiteBread;
     private int meat;
     private int basePrice;
-    private int BaseAdditionalItem;
+    private boolean baseAdditionalItem;
     private int lettuce;
     private int tomato;
     private int pickle;
     private int onion;
 
     public BaseBurger(int whiteBread, int meat, int basePrice) {
-        this.whiteBread = whiteBread;
-        this.meat = meat;
-        this.basePrice = basePrice;
+        this.whiteBread = 12;
+        this.meat = 18;
+        this.basePrice = this.whiteBread + this.meat;
+        baseAdditionalItem = false;
+
     }
 
-    //method to calculate the price
-    //switch statement for additional items and add to the final price
+    public int calculateBasePrice(int basePrice) {
+        lettuce = 8;
+        tomato = 7;
+        pickle = 9;
+        onion = 11;
+        int addBaseItem = 0;
+
+        if (baseAdditionalItem == true) {
+
+            if (addBaseItem == lettuce) {
+                addBaseItem += lettuce;
+            }
+            if (addBaseItem == tomato) {
+                addBaseItem += tomato;
+            }
+            if (addBaseItem == pickle) {
+                addBaseItem += pickle;
+            }
+            if (addBaseItem == onion) {
+                addBaseItem += onion;
+            }
+
+
+        }
+
+        basePrice = basePrice + addBaseItem;
+
+    }
+
+}
+//method to calculate the price
+
 }
 
-class HealthyBurger{
+class HealthyBurger extends BaseBurger {
     private int darkBread;
     private int mustard;
     private int tofu;
     private int healthyPrice;
-    private int healthyAdditionalItem;
+    private boolean healthyAdditionalItem;
 
     public HealthyBurger(int darkBread, int healthyPrice) {
-        this.darkBread = darkBread;
-        this.healthyPrice = healthyPrice;
+        this.darkBread = 15;
+        this.healthyPrice = this.darkBread + super.BaseBurger.basePrice;//
+        healthyAdditionalItem = false;
     }
+
+
+
+}
 }
 
 
-class DeluxeBurger{
+class DeluxeBurger {
     private int chips;
     private int drinks;
     private int deluxePrice;
