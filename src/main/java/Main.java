@@ -70,7 +70,24 @@ class HealthyBurger extends BaseBurger {
         healthyAdditionalItem = false;
     }
 
+    public int calculateHealthyPrice(int healthyPrice) {
+        mustard = 13;
+        tofu = 19;
+        int addHealthyItem = 0;
 
+        if (healthyAdditionalItem == true) {
+            if (addHealthyItem == mustard) {
+                addHealthyItem += mustard;
+            }
+            if (addHealthyItem == tofu) {
+                addHealthyItem += tofu;
+            }
+        }
+
+        healthyPrice = healthyPrice + addHealthyItem;
+
+
+    }
 
 }
 }
