@@ -44,12 +44,11 @@ class BaseBurger {
             if (addBaseItem == onion) {
                 addBaseItem += onion;
             }
-
-
+            basePrice = basePrice +addBaseItem;
+        }else {
+            basePrice= this.whiteBread+this.meat;
         }
-
-        basePrice = basePrice + addBaseItem;
-
+      return basePrice;
     }
 
 }
@@ -65,8 +64,9 @@ class HealthyBurger extends BaseBurger {
     private boolean healthyAdditionalItem;
 
     public HealthyBurger(int darkBread, int healthyPrice) {
+
         this.darkBread = 15;
-        this.healthyPrice = this.darkBread + super.BaseBurger.basePrice;//
+        this.healthyPrice = this.darkBread + super.meat;//
         healthyAdditionalItem = false;
     }
 
@@ -93,11 +93,25 @@ class HealthyBurger extends BaseBurger {
 }
 
 
-class DeluxeBurger {
+class DeluxeBurger extends BaseBurger {
     private int chips;
     private int drinks;
     private int deluxePrice;
     //prevent any other additions, meaning that only bread and meat can be added or the base as it is and no other additional item
     //deluxe burger is a composition of the base burger and the chips and drinks
 
+
+    public DeluxeBurger(int chips, int drinks, int deluxePrice) {
+        this.chips = 20;
+        this.drinks = 100;
+        this.deluxePrice = deluxePrice;
+
+    }
+
+    public int calculateDeluxePrice (int deluxePrice){
+
+        deluxePrice=this.chips + this.drinks + BaseBurger.calculateBasePrice();
+
+
+    }
 }
